@@ -15,7 +15,7 @@ keytool -v -export -file user-management.cer -keystore user-management.jks -alia
 
 ## Import a CER to key store in consumer system
 ~~~
-keytool -import -trustcacerts -keystore "C:\Program Files\Java\jdk-11.0.12\lib\security\cacerts" -storepass changeit -noprompt -alias user-management2 -file "C:\Users\DSS049\Desktop\demo\src\main\resources\user-management.cer"
+keytool -import -trustcacerts -keystore "C:\Program Files\Java\jdk-11.0.12\lib\security\cacerts" -storepass changeit -noprompt -alias user-management2 -file "C:\Users\DJ\Desktop\demo\src\main\resources\user-management.cer"
 ~~~
 
 ## Edit host entry:
