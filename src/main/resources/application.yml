@@ -1,0 +1,23 @@
+
+server:
+  port: 8443
+  ssl:
+    key-alias: user-management
+    key-store-type: JKS
+    key-password: changeit
+    key-store: 'classpath:user-management.jks'
+
+spring:
+  redis:
+    host: localhost
+    password: password
+    port: 6379
+#    ssl: true
+  cache:
+    redis:
+      time-to-live: 60s
+
+logging:
+  level:
+    root: INFO
+    com.* : DEBUG
