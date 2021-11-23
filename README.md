@@ -24,3 +24,27 @@ C:\Windows\System32\drivers\etc\hosts
 
 127.0.0.1 user-management.com
 ~~~
+
+
+## Below configuration required for Spring Webflux
+~~~
+@Configuration
+public class NettyWebServerFactorySslCustomizer
+        implements WebServerFactoryCustomizer<NettyReactiveWebServerFactory> {
+    @Override
+    public void customize(NettyReactiveWebServerFactory serverFactory) {
+        Ssl ssl = new Ssl();
+        ssl.setEnabled(true);
+        ssl.setKeyStore("classpath:user-management.jks");
+        ssl.setKeyAlias("user-management");
+        ssl.setKeyPassword("changeit");
+        ssl.setKeyStorePassword("changeit");
+        Http2 http2 = new Http2();
+        http2.setEnabled(false);
+        serverFactory.setSsl(ssl);
+        serverFactory.setHttp2(http2);
+        serverFactory.setPort(8443);
+    }
+}
+
+~~~
